@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Резюме</title>
+<style>
+    body {
+        font-family: Tahoma, serif;
+        background: #f5f5f5;
+        margin: 0;
+        padding: 2rem;
+        transition: background 0.5s;
+    }
+    h1 { color: #666; text-shadow: 1px 1px 2px #aaa; }
+    .label { font-weight: bold; }
+    #surname:hover { color: crimson; cursor: pointer; }
+    button:hover { box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+    input, button { font-size: 1rem; margin-top: 0.5rem; }
+    .card { border: 1px solid #ccc; padding: 1rem; border-radius: 8px; max-width: 400px;}
+</style>
+</head>
+<body>
+    <div class="card">
+        <h1>Иван <span id="surname">Иванов</span></h1>
+        <img src="photo.jpg" alt="Фото" width="100%">
+        <div>
+            <label class="label" for="newSurname">Изменить фамилию:</label><br>
+            <input id="newSurname" placeholder="Введите новую фамилию">
+            <button id="apply">Применить</button>
+        </div>
+        <button id="randBg">Случайный фон</button>
+    </div>
+
+<script>
+document.getElementById('apply').addEventListener('click', ()=>{
+    const s = document.getElementById('newSurname').value.trim();
+    if (s) document.getElementById('surname').textContent = s;
+});
+document.getElementById('randBg').addEventListener('click', ()=>{
+    document.body.style.background =
+        `hsl(${Math.random()*360}, 70%, 90%)`;
+});
+</script>
+</body>
+</html>
